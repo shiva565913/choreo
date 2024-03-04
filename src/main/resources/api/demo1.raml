@@ -1,0 +1,39 @@
+#%RAML 1.0
+title: demo1
+
+/empData:
+  post:
+    body:
+      application/json:
+        examples:
+          {
+            "sno": 1,
+            "name": "Shiva"
+          }
+    responses:
+      400:
+        body:
+          application/json:
+            example:
+              "message": "bad request"
+
+/studentData:
+  get:
+    queryParameters:
+      voyageNo:
+        required: true
+        enum:
+          - "101"
+          - "105"
+          - "110"
+        example:
+          "105"
+      
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "message": success
+              }
